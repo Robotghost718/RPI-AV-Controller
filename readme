@@ -1,0 +1,125 @@
+# Raspberry PI Display and AV Switcher Controller
+
+A powerful Raspberry Pi-based AV controller system written entirely in JavaScript. Control projectors, input switchers, volume, and microphones via an intuitive web interface.
+
+## Features
+
+- **Web-Based Control Interface** - Responsive HTML5 UI accessible from any device on your network
+- **Multi-Device Support** - Compatible with Epson, NEC, and Panasonic projectors
+- **Real-Time Control** - Instant response for power, input selection, volume, and microphone control
+- **Persistent State** - Uses localStorage to remember user preferences
+- **Kiosk Mode Ready** - Optimized for touchscreen displays and fixed installations
+- **Hardware Integration** - Direct serial communication with AV equipment
+- **Modern Stack** - Pure JavaScript (Node.js + vanilla ES6 frontend)
+
+## Quick Start
+
+### Prerequisites
+- Raspberry Pi (3B+ or newer recommended)
+- Node.js 14+
+- npm
+
+### Installation
+
+```bash
+git clone https://github.com/Robotghost718/raspberry-pi-display-av-controller.git
+cd "Raspberry PI Display and AV Switcher Controller"
+npm install
+npm start
+```
+
+The server will start on `http://localhost:3000`
+
+### Configuration
+
+1. Edit `server.js` to set your:
+   - Serial port path (default: `/dev/ttyUSB0`)
+   - Server port (default: `3000`)
+   - Device type (Epson, NEC, or Panasonic)
+
+2. Configure your hardware device:
+   - Set baud rate to 9600
+   - Connect via USB serial adapter
+
+### Hardware Setup
+
+Connect your AV devices (projector, input switcher, amplifier) to the Raspberry Pi via USB serial adapters. The controller sends standardized commands based on device manufacturer protocols.
+
+Supported devices:
+- **Projectors**: Epson, NEC, Panasonic
+- **Switchers**: HDMI matrix switchers with serial control
+- **Amplifiers**: Devices with serial control interfaces
+
+## API Documentation
+
+See `IMPLEMENTATION_GUIDE.md` for complete REST API documentation.
+
+### Example Endpoints
+
+```
+POST /api/power/on          - Turn device on
+POST /api/power/off         - Turn device off
+POST /api/input/1           - Switch to input 1
+POST /api/volume/50         - Set volume to 50%
+POST /api/mic/mute          - Mute microphone
+GET  /api/health            - Check server health
+```
+
+## Architecture
+
+The system uses a modern, clean architecture:
+
+- **Backend**: Express.js REST API server (`server.js`)
+- **Hardware Layer**: Serial communication module (`serialDevice.js`)
+- **Frontend**: Vanilla JavaScript with Bootstrap (`Switcher.js`, `projector.html`)
+- **Styling**: Bootstrap framework + custom theme
+
+## Project Structure
+
+```
+├── server.js                 # Main Express server
+├── serialDevice.js           # Serial communication module
+├── package.json              # Node.js dependencies
+├── GUIs/                     # UI variants (2, 3, or 4 input versions)
+├── Style/                    # Stylesheets and frontend code
+└── docs/                     # Documentation
+```
+
+## Documentation
+
+- **IMPLEMENTATION_GUIDE.md** - Complete implementation details and API reference
+- **MIGRATION_GUIDE.md** - JavaScript conversion details
+- **SECURITY_REVIEW.md** - Security review and public release checklist
+- **ARCHITECTURE.md** - System architecture overview
+
+## Migration History
+
+This project was originally written in PHP, Python, and Apache. Version 2.0 has been completely rewritten in pure JavaScript running on Node.js for better performance, easier maintenance, and broader compatibility.
+
+See `MIGRATION_GUIDE.md` for details on what changed.
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is licensed under the MIT License - see the `LICENSE` file for details.
+
+## Author
+
+**Robotghost718** - [GitHub Profile](https://github.com/Robotghost718)
+
+## Support
+
+For assistance, please visit the [GitHub Issues](https://github.com/Robotghost718/raspberry-pi-display-av-controller/issues) page or consult the project documentation.
+
+## Related Projects
+
+- [Raspberry Pi Home Automation](https://github.com/topics/raspberry-pi-automation)
+- [AV Controller Systems](https://github.com/topics/av-control)
+
+---
+
+**Status**: Production Ready ✅
+**Last Updated**: November 2, 2025

@@ -1,0 +1,31 @@
+{
+  "name": "raspberry-pi-display-av-controller",
+  "version": "2.0.0",
+  "description": "A Raspberry Pi-based AV controller system written entirely in JavaScript. Control projectors, input switchers, volume, and microphones via a web interface.",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Robotghost718/raspberry-pi-display-av-controller.git"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "projector",
+    "av-controller",
+    "raspberry-pi",
+    "home-automation",
+    "audio-video",
+    "control-system",
+    "display-controller"
+  ],
+  "author": "Robotghost718",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "body-parser": "^1.20.2",
+    "serialport": "^9.2.8"
+  }
+}
